@@ -4,11 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C4U.Studio – Handwerk & 3D Design</title>
+  <meta name="description"
+    content="C4U.Studio - Gratis en betaalde haakpatronen + unieke 3D prints. Download direct je gratis patronen of ontdek premium designs voor makers van alle niveaus.">
+  <meta name="keywords"
+    content="gratis haakpatronen downloaden, haakpatronen België, 3D prints België, amigurumi patronen, creatieve haakprojecten, C4U Studio, haakpatronen voor beginners">
+  <title>C4U.Studio – Gratis Haakpatronen & 3D Prints | Creatieve Designs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <style>
     * {
@@ -25,6 +29,8 @@
       --rose: #D4909B;
       --warm-grey: #9B958C;
       --light-grey: #E8E5E0;
+      --accent-gold: #C9A962;
+      --success-green: #6B9B7F;
     }
 
     body {
@@ -33,6 +39,7 @@
       color: var(--charcoal);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     .container {
@@ -44,6 +51,16 @@
     header {
       padding: 30px 0;
       border-bottom: 1px solid var(--light-grey);
+      position: sticky;
+      top: 0;
+      background: var(--ivory);
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 15px 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
     }
 
     .header-content {
@@ -55,38 +72,74 @@
     .logo-img {
       height: 80px;
       width: auto;
+      transition: height 0.3s ease;
+    }
+
+    header.scrolled .logo-img {
+      height: 60px;
     }
 
     .seasonal-badge {
-      font-size: 12px;
+      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       color: var(--rose);
-      font-weight: 500;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    /* AI CHATBOT BANNER */
-    .ai-banner {
-      background: linear-gradient(135deg, var(--rose) 0%, var(--soft-pink) 100%);
+    .seasonal-badge::before {
+      content: '✨';
+      animation: sparkle 2s infinite;
+    }
+
+    @keyframes sparkle {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+
+      50% {
+        opacity: 0.6;
+        transform: scale(1.3) rotate(180deg);
+      }
+    }
+
+    .free-banner {
+      background: linear-gradient(135deg, var(--success-green) 0%, #7FAE94 100%);
       color: white;
-      padding: 24px 20px;
+      padding: 20px;
       text-align: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-      border-bottom: 3px solid var(--rose);
     }
 
-    .ai-banner:hover {
-      transform: scale(1.01);
-      box-shadow: 0 4px 20px rgba(212, 144, 155, 0.3);
+    .free-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      animation: shimmer 3s infinite;
     }
 
-    .ai-banner h2 {
-      font-size: 26px;
-      font-weight: 600;
-      margin-bottom: 8px;
+    @keyframes shimmer {
+      0% {
+        left: -100%;
+      }
+
+      100% {
+        left: 100%;
+      }
+    }
+
+    .free-banner-content {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -94,244 +147,26 @@
       flex-wrap: wrap;
     }
 
-    .ai-badge {
-      background: rgba(255, 255, 255, 0.25);
-      padding: 5px 14px;
+    .free-badge {
+      background: rgba(255, 255, 255, 0.3);
+      padding: 6px 16px;
       border-radius: 20px;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1.5px;
+      font-weight: 700;
+      backdrop-filter: blur(10px);
+    }
+
+    .free-banner h3 {
+      font-size: 18px;
       font-weight: 600;
-      animation: pulse 2s infinite;
+      margin: 0;
     }
 
-    @keyframes pulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.05);
-      }
-    }
-
-    .ai-banner p {
-      font-size: 16px;
-      opacity: 0.95;
-    }
-
-    /* CHAT WIDGET */
-    .chat-widget {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      top: 0;
-      z-index: 10000;
-      background: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .chat-widget.open {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .chat-container {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: white;
-      height: 85vh;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 -10px 50px rgba(0, 0, 0, 0.3);
-      transform: translateY(100%);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .chat-widget.open .chat-container {
-      transform: translateY(0);
-    }
-
-    .chat-header {
-      background: linear-gradient(135deg, var(--rose) 0%, var(--soft-pink) 100%);
-      color: white;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .chat-header h3 {
-      font-size: 22px;
-      font-weight: 600;
-    }
-
-    .chat-header p {
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
-    .close-chat {
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
-      color: white;
-      font-size: 28px;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .close-chat:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: rotate(90deg);
-    }
-
-    .chat-messages {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      background: #f5f5f5;
-    }
-
-    .message {
-      display: flex;
-      gap: 10px;
-      animation: slideIn 0.3s ease;
-    }
-
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .message.user {
-      justify-content: flex-end;
-    }
-
-    .message-content {
-      max-width: 80%;
-      padding: 14px 18px;
-      border-radius: 20px;
-      line-height: 1.5;
-      font-size: 15px;
-    }
-
-    .message.bot .message-content {
-      background: white;
-      color: #333;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .message.user .message-content {
-      background: linear-gradient(135deg, var(--rose) 0%, var(--soft-pink) 100%);
-      color: white;
-    }
-
-    .chat-input-area {
-      padding: 20px;
-      border-top: 1px solid #e0e0e0;
-      background: white;
-      display: flex;
-      gap: 12px;
-    }
-
-    .chat-input-area input {
-      flex: 1;
-      padding: 16px 20px;
-      border: 2px solid #e0e0e0;
-      border-radius: 28px;
-      font-size: 16px;
-      outline: none;
-      transition: border 0.3s;
-    }
-
-    .chat-input-area input:focus {
-      border-color: var(--rose);
-    }
-
-    .chat-input-area button {
-      padding: 16px 32px;
-      background: linear-gradient(135deg, var(--rose) 0%, var(--soft-pink) 100%);
-      color: white;
-      border: none;
-      border-radius: 28px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.2s;
-      font-size: 15px;
-    }
-
-    .chat-input-area button:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(212, 144, 155, 0.4);
-    }
-
-    .chat-input-area button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .typing {
-      padding: 14px 18px;
-      background: white;
-      border-radius: 20px;
-      display: inline-block;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .typing span {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background: #999;
-      border-radius: 50%;
-      margin: 0 3px;
-      animation: typing 1.4s infinite;
-    }
-
-    .typing span:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .typing span:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-
-    @keyframes typing {
-
-      0%,
-      60%,
-      100% {
-        transform: translateY(0);
-      }
-
-      30% {
-        transform: translateY(-10px);
-      }
-    }
-
-    /* REST VAN DE PAGINA */
     .hero {
-      padding: 80px 0 60px;
+      padding: 100px 0 80px;
+      position: relative;
     }
 
     .hero-grid {
@@ -343,166 +178,435 @@
 
     .greeting {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 64px;
-      font-weight: 300;
+      font-size: 72px;
+      font-weight: 400;
       line-height: 1.1;
       margin-bottom: 30px;
-      color: var(--rose);
+      background: linear-gradient(135deg, var(--rose) 0%, var(--accent-gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 0.8s ease;
     }
 
-    .hero-text h1 {
-      font-size: 24px;
-      font-weight: 400;
-      line-height: 1.6;
-      margin-bottom: 40px;
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
       color: var(--charcoal);
+      margin-bottom: 25px;
+      animation: fadeInUp 0.8s ease 0.2s backwards;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      color: var(--warm-grey);
+      animation: fadeInUp 0.8s ease 0.4s backwards;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.6s backwards;
+    }
+
+    .cta-primary,
+    .cta-secondary,
+    .cta-free {
+      display: inline-block;
+      padding: 18px 36px;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+    }
+
+    .cta-free {
+      background: linear-gradient(135deg, var(--success-green) 0%, #7FAE94 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(107, 155, 127, 0.3);
+      position: relative;
+    }
+
+    .cta-free::before {
+      content: '🎁 ';
+      margin-right: 4px;
+    }
+
+    .cta-free:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(107, 155, 127, 0.4);
+    }
+
+    .cta-primary {
+      background: linear-gradient(135deg, var(--charcoal) 0%, #3a4149 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .cta-primary:hover {
+      background: linear-gradient(135deg, var(--rose) 0%, var(--soft-pink) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(212, 144, 155, 0.3);
+    }
+
+    .cta-secondary {
+      background: transparent;
+      color: var(--charcoal);
+      border: 2px solid var(--charcoal);
+    }
+
+    .cta-secondary:hover {
+      background: var(--charcoal);
+      color: white;
+      transform: translateY(-2px);
     }
 
     .hero-images {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
+      animation: fadeIn 1s ease 0.4s backwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     .hero-img-link {
       display: block;
       position: relative;
       overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .hero-img-link::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.4));
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .hero-img-link:hover::after {
+      opacity: 1;
     }
 
     .hero-img {
       width: 100%;
       height: 340px;
       object-fit: cover;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      transition: transform 0.4s ease;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      transition: transform 0.6s ease;
     }
 
     .hero-img-link:hover .hero-img {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
 
-    .cta-primary {
-      display: inline-block;
-      padding: 16px 36px;
-      background-color: var(--charcoal);
-      color: var(--ivory);
-      text-decoration: none;
-      font-size: 14px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-weight: 500;
+    .about-section {
+      padding: 100px 0;
+      background: linear-gradient(to bottom, var(--warm-white), var(--ivory));
+      border-top: 1px solid var(--light-grey);
+    }
+
+    .about-content {
+      max-width: 950px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 400;
+      margin-bottom: 30px;
+      color: var(--charcoal);
+    }
+
+    .about-intro {
+      font-size: 19px;
+      line-height: 1.9;
+      color: var(--charcoal);
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    .about-text {
+      font-size: 17px;
+      line-height: 1.9;
+      color: var(--warm-grey);
+      margin-bottom: 50px;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      margin-top: 60px;
+    }
+
+    .highlight-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 8px;
+      border: 1px solid var(--light-grey);
       transition: all 0.3s ease;
     }
 
-    .cta-primary:hover {
-      background-color: var(--rose);
+    .highlight-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+      border-color: var(--rose);
+    }
+
+    .highlight-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .highlight-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .highlight-description {
+      font-size: 15px;
+      color: var(--warm-grey);
+      line-height: 1.7;
+    }
+
+    .highlight-card.free {
+      border-color: var(--success-green);
+      background: linear-gradient(to bottom, white, #f7faf8);
     }
 
     .categories-section {
-      padding: 80px 0;
-      background-color: var(--warm-white);
-      border-top: 1px solid var(--light-grey);
+      padding: 100px 0;
+      background: var(--ivory);
     }
 
     .section-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
+      font-size: 48px;
       font-weight: 400;
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 70px;
       color: var(--charcoal);
     }
 
     .categories-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      max-width: 1000px;
+      gap: 32px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
     .category-card {
       background: white;
-      padding: 40px 30px;
+      padding: 48px 36px;
       text-decoration: none;
       border: 1px solid var(--light-grey);
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
       text-align: center;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--rose), var(--soft-pink), var(--accent-gold));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .category-card:hover::before {
+      transform: scaleX(1);
     }
 
     .category-card:hover {
       border-color: var(--rose);
-      transform: translateY(-4px);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
     }
 
     .category-icon {
-      font-size: 32px;
-      margin-bottom: 16px;
+      font-size: 48px;
+      margin-bottom: 24px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .category-card:hover .category-icon {
+      transform: scale(1.15) rotate(5deg);
     }
 
     .category-title {
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .category-description {
+      font-size: 14px;
+      color: var(--warm-grey);
+      line-height: 1.6;
+    }
+
+    .why-section {
+      padding: 80px 0;
+      background: var(--warm-white);
+      border-top: 1px solid var(--light-grey);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      max-width: 1100px;
+      margin: 60px auto 0;
+    }
+
+    .why-item {
+      text-align: center;
+    }
+
+    .why-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .why-title {
+      font-size: 16px;
+      font-weight: 600;
       color: var(--charcoal);
       margin-bottom: 8px;
     }
 
-    .category-description {
+    .why-text {
       font-size: 13px;
       color: var(--warm-grey);
+      line-height: 1.6;
     }
 
     .social-section {
-      padding: 60px 0;
+      padding: 80px 0;
       text-align: center;
       border-top: 1px solid var(--light-grey);
+      background: var(--ivory);
     }
 
     .social-title {
       font-size: 14px;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       color: var(--warm-grey);
-      margin-bottom: 30px;
+      margin-bottom: 40px;
+      font-weight: 600;
     }
 
     .social-links {
       display: flex;
-      gap: 40px;
+      gap: 48px;
       justify-content: center;
+      flex-wrap: wrap;
     }
 
     .social-link {
-      font-size: 14px;
+      font-size: 15px;
       color: var(--charcoal);
       text-decoration: none;
       letter-spacing: 1px;
       text-transform: uppercase;
-      transition: color 0.3s;
+      transition: all 0.3s;
+      font-weight: 600;
+      padding: 14px 28px;
+      border: 2px solid transparent;
+      border-radius: 30px;
     }
 
     .social-link:hover {
       color: var(--rose);
+      border-color: var(--rose);
+      background: rgba(212, 144, 155, 0.05);
+      transform: translateY(-2px);
     }
 
     footer {
-      padding: 50px 0;
+      padding: 60px 0;
       text-align: center;
-      font-size: 12px;
+      font-size: 13px;
       color: var(--warm-grey);
       border-top: 1px solid var(--light-grey);
+      background: var(--warm-white);
     }
 
-    /* RESPONSIVE */
+    footer p:first-child {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--charcoal);
+    }
+
     @media (max-width: 968px) {
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 50px;
       }
 
       .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-highlights {
         grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .greeting {
+        font-size: 56px;
       }
     }
 
@@ -516,38 +620,74 @@
       }
 
       .greeting {
-        font-size: 38px;
+        font-size: 42px;
       }
 
-      .hero-text h1 {
+      .hero-subtitle {
+        font-size: 22px;
+      }
+
+      .hero-text p {
         font-size: 16px;
       }
 
-      .chat-container {
-        height: 90vh;
+      .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-group {
+        flex-direction: column;
+      }
+
+      .cta-primary,
+      .cta-secondary,
+      .cta-free {
+        width: 100%;
+        text-align: center;
+      }
+
+      .social-links {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .about-title {
+        font-size: 36px;
+      }
+
+      .section-title {
+        font-size: 36px;
+      }
+
+      .free-banner h3 {
+        font-size: 16px;
       }
     }
   </style>
 </head>
 
 <body>
-  <header>
+  <header id="header">
     <div class="container">
       <div class="header-content">
         <img
           src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Ccircle cx='250' cy='250' r='230' fill='none' stroke='%23E8B4BC' stroke-width='20'/%3E%3Ctext x='250' y='280' font-family='Georgia, serif' font-size='180' fill='%23E8B4BC' text-anchor='middle' font-style='italic' font-weight='300'%3EC4U%3C/text%3E%3Ctext x='250' y='350' font-family='Georgia, serif' font-size='40' fill='%23E8B4BC' text-anchor='middle' letter-spacing='8' font-weight='300'%3ESTUDIO%3C/text%3E%3C/svg%3E"
           alt="C4U.Studio Logo" class="logo-img">
-        <div class="seasonal-badge">Gelukkig Kerstfeest</div>
+        <div class="seasonal-badge">Fijne Feestdagen</div>
       </div>
     </div>
   </header>
 
-  <div class="ai-banner" onclick="openChat()">
-    <h2>
-      💬 Chat met onze AI Assistent
-      <span class="ai-badge">⚡ Live</span>
-    </h2>
-    <p>Vraag alles over onze producten, patronen en 3D prints</p>
+  <div class="free-banner">
+    <div class="free-banner-content">
+      <span class="free-badge">🎁 GRATIS</span>
+      <h3>Download nu gratis haakpatronen • Direct beschikbaar</h3>
+    </div>
   </div>
 
   <main>
@@ -555,14 +695,20 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-text">
-            <div class="greeting">Fijne Kerstfeesten</div>
-            <h1>C4U.Studio is gespecialiseerd in haakwerk en 3D-printen. Van handgemaakte creaties tot op maat ontworpen
-              prints – elk project met vakmanschap en precisie.</h1>
-            <a href="https://www.crochets4u.be" class="cta-primary">Bezoek de Webshop</a>
+            <div class="greeting">Fijne Feestdagen</div>
+            <h1 class="hero-subtitle">Gratis Haakpatronen & 3D Prints voor Makers</h1>
+            <p>Ontdek gratis patronen en unieke designs ontworpen met passie. Bij C4U.Studio vind je inspirerende
+              haakprojecten voor makers van alle niveaus én creatieve 3D prints — allemaal rechtstreeks van atelier tot
+              creatie.</p>
+            <div class="cta-group">
+              <a href="https://www.crochets4u.be/c-3151006/haakpatronen/" class="cta-free">Gratis Patronen</a>
+              <a href="https://www.crochets4u.be" class="cta-primary">Bekijk Shop</a>
+              <a href="https://www.crochets4u.be/c-7298945/3d-prints/" class="cta-secondary">3D Prints</a>
+            </div>
           </div>
           <div class="hero-images">
             <a href="https://www.crochets4u.be/c-3189026/wol-garen/" class="hero-img-link">
-              <img src="haken.webp" alt="Wol & Garen" class="hero-img">
+              <img src="haken.webp" alt="Haakwerk en Wol" class="hero-img">
             </a>
             <a href="https://www.crochets4u.be/c-7298945/3d-prints/" class="hero-img-link">
               <img src="3Dprint.webp" alt="3D Prints" class="hero-img">
@@ -572,51 +718,121 @@
       </div>
     </section>
 
+    <section class="about-section">
+      <div class="container">
+        <div class="about-content">
+          <h2 class="about-title">Over C4U.Studio – Haakpatronen & 3D Prints met Creatieve Ziel</h2>
+          <p class="about-intro">
+            Welkom bij <strong>C4U.Studio</strong>, jouw creatieve bestemming voor haakpatronen, gratis downloads en
+            unieke 3D prints!
+          </p>
+          <p class="about-text">
+            Bij <strong>Crochets4U.be</strong> deel je niet alleen prachtige haakprojecten — je ontdekt een hele wereld
+            van inspiratie voor makers van alle niveaus. Of je nu pas begint met haken of al jarenlang gehaakte
+            meesterwerken maakt, wij combineren passie, kwaliteit en toegankelijkheid in iedere creatie. Of je nu zoekt
+            naar <strong>haakpatronen in België</strong>, <strong>gratis patronen online</strong>, of originele 3D print
+            ontwerpen — je bent hier aan het juiste adres.
+          </p>
+
+          <div class="about-highlights">
+            <div class="highlight-card free">
+              <div class="highlight-icon">🎁</div>
+              <h3 class="highlight-title">Gratis Haakpatronen</h3>
+              <p class="highlight-description">Direct beschikbaar om te downloaden en te haken — van leuke accessoires
+                tot schattige amigurumi en handige projecten voor thuis.</p>
+            </div>
+            <div class="highlight-card">
+              <div class="highlight-icon">📄</div>
+              <h3 class="highlight-title">Betaalde Patronen</h3>
+              <p class="highlight-description">Creatieve designs met duidelijke instructies en patronen van
+                professionele kwaliteit voor elk niveau.</p>
+            </div>
+            <div class="highlight-card">
+              <div class="highlight-icon">🖨️</div>
+              <h3 class="highlight-title">3D Prints</h3>
+              <p class="highlight-description">Unieke creatieve objecten geprint met oog voor detail en stijl, perfect
+                als cadeautje of decoratie.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="categories-section">
       <div class="container">
         <h2 class="section-title">Ontdek de Collectie</h2>
         <div class="categories-grid">
-          <a href="https://www.crochets4u.be/c-3151006/haakpatronen/" class="category-card">
+          <a href="https://www.crochets4u.be/c-4592246/gratis-haakpatronen/" class="category-card">
             <span class="category-icon">📝</span>
             <div class="category-title">Haakpatronen</div>
-            <div class="category-description">Originele patronen voor elk niveau</div>
+            <div class="category-description">Gratis én betaalde patronen — van amigurumi tot decoratie, voor elk niveau
+            </div>
           </a>
           <a href="https://www.crochets4u.be/c-3189026/wol-garen/" class="category-card">
             <span class="category-icon">🧶</span>
             <div class="category-title">Wol & Garen</div>
-            <div class="category-description">Hoogwaardige materialen</div>
+            <div class="category-description">Hoogwaardige materialen in diverse kleuren en texturen</div>
           </a>
           <a href="https://www.crochets4u.be/c-7298945/3d-prints/" class="category-card">
             <span class="category-icon">🖨️</span>
             <div class="category-title">3D Prints</div>
-            <div class="category-description">Functioneel & decoratief design</div>
+            <div class="category-description">Functioneel & decoratief design uit eigen atelier</div>
           </a>
           <a href="https://www.crochets4u.be/c-3189889/haakpakketten/" class="category-card">
             <span class="category-icon">📦</span>
             <div class="category-title">Haakpakketten</div>
-            <div class="category-description">Complete sets om direct te starten</div>
+            <div class="category-description">Complete sets om direct te starten met je project</div>
           </a>
           <a href="https://www.crochets4u.be/c-3209725/accessoires/" class="category-card">
             <span class="category-icon">✂️</span>
             <div class="category-title">Accessoires</div>
-            <div class="category-description">Tools en benodigdheden</div>
+            <div class="category-description">Tools en benodigdheden voor je creatieve projecten</div>
           </a>
           <a href="https://www.crochets4u.be/c-3209721/maaksels/" class="category-card">
             <span class="category-icon">🎨</span>
             <div class="category-title">Maaksels</div>
-            <div class="category-description">Handgemaakte unieke items</div>
+            <div class="category-description">Handgemaakte unieke items met veel aandacht</div>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-section">
+      <div class="container">
+        <h2 class="section-title">Waarom kiezen voor C4U.Studio?</h2>
+        <div class="why-grid">
+          <div class="why-item">
+            <span class="why-icon">🎁</span>
+            <h3 class="why-title">Gratis Patronen</h3>
+            <p class="why-text">Direct te downloaden zonder kosten</p>
+          </div>
+          <div class="why-item">
+            <span class="why-icon">✨</span>
+            <h3 class="why-title">Creatief & Origineel</h3>
+            <p class="why-text">Unieke designs gemaakt met passie</p>
+          </div>
+          <div class="why-item">
+            <span class="why-icon">🎯</span>
+            <h3 class="why-title">Voor Alle Niveaus</h3>
+            <p class="why-text">Van beginner tot gevorderd maker</p>
+          </div>
+          <div class="why-item">
+            <span class="why-icon">🌟</span>
+            <h3 class="why-title">Community</h3>
+            <p class="why-text">Volg @c4u.studio voor inspiratie</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="social-section">
       <div class="container">
-        <div class="social-title">Volg Ons</div>
+        <div class="social-title">Volg Ons Voor Tips & Nieuwe Patronen</div>
         <div class="social-links">
-          <a href="https://www.instagram.com/c4ustudio/" class="social-link">Instagram</a>
-          <a href="https://linktr.ee/Crochets4u" class="social-link">Linktree</a>
-          <a href="https://crochets4u.blogspot.com" class="social-link">Blog</a>
+          <a href="https://www.instagram.com/c4u.studio/" class="social-link" target="_blank" rel="noopener">📸
+            Instagram</a>
+          <a href="https://linktr.ee/Crochets4u" class="social-link" target="_blank" rel="noopener">🔗 Linktree</a>
+          <a href="https://crochets4u.blogspot.com" class="social-link" target="_blank" rel="noopener">📝 Blog</a>
         </div>
       </div>
     </section>
@@ -625,108 +841,19 @@
   <footer>
     <div class="container">
       <p>&copy; 2024 C4U.Studio</p>
-      <p>Creatief handwerk en design uit België</p>
+      <p>Gratis haakpatronen • 3D Prints • Creatief handwerk uit België</p>
     </div>
   </footer>
 
-  <div class="chat-widget" id="chatWidget">
-    <div class="chat-container">
-      <div class="chat-header">
-        <div>
-          <h3>💬 C4U Studio AI</h3>
-          <p>We helpen je graag verder</p>
-        </div>
-        <button class="close-chat" onclick="closeChat()">×</button>
-      </div>
-
-      <div class="chat-messages" id="chatMessages">
-        <div class="message bot">
-          <div class="message-content">
-            Hoi! 👋 Ik ben de C4U chatbot. Vraag me gerust over onze handgemaakte crochet producten, 3D prints of onze
-            Instagram pagina!
-          </div>
-        </div>
-      </div>
-
-      <div class="chat-input-area">
-        <input type="text" id="chatInput" placeholder="Typ je vraag hier..."
-          onkeypress="if(event.key==='Enter') sendMessage()" />
-        <button onclick="sendMessage()" id="sendBtn">Stuur</button>
-      </div>
-    </div>
-  </div>
-
   <script>
-    const WEBHOOK_URL = 'https://c4ustudio.app.n8n.cloud/webhook/c4u-chat';
-
-    function openChat() {
-      document.getElementById('chatWidget').classList.add('open');
-      document.getElementById('chatInput').focus();
-    }
-
-    function closeChat() {
-      document.getElementById('chatWidget').classList.remove('open');
-    }
-
-    function addMessage(text, isUser) {
-      const chat = document.getElementById('chatMessages');
-      const msgDiv = document.createElement('div');
-      msgDiv.className = `message ${isUser ? 'user' : 'bot'}`;
-      msgDiv.innerHTML = `<div class="message-content">${text}</div>`;
-      chat.appendChild(msgDiv);
-      chat.scrollTop = chat.scrollHeight;
-    }
-
-    function showTyping() {
-      const chat = document.getElementById('chatMessages');
-      const typingDiv = document.createElement('div');
-      typingDiv.className = 'message bot';
-      typingDiv.id = 'typing';
-      typingDiv.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
-      chat.appendChild(typingDiv);
-      chat.scrollTop = chat.scrollHeight;
-    }
-
-    function removeTyping() {
-      const typing = document.getElementById('typing');
-      if (typing) typing.remove();
-    }
-
-    async function sendMessage() {
-      const input = document.getElementById('chatInput');
-      const btn = document.getElementById('sendBtn');
-      const message = input.value.trim();
-
-      if (!message) return;
-
-      input.disabled = true;
-      btn.disabled = true;
-
-      addMessage(message, true);
-      input.value = '';
-
-      showTyping();
-
-      try {
-        const res = await fetch(WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message })
-        });
-
-        const data = await res.json();
-        removeTyping();
-        addMessage(data.reply, false);
-      } catch (error) {
-        removeTyping();
-        addMessage('Sorry, er ging iets mis. Probeer het opnieuw! 😅', false);
-        console.error(error);
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
       }
-
-      input.disabled = false;
-      btn.disabled = false;
-      input.focus();
-    }
+    });
   </script>
 </body>
 
