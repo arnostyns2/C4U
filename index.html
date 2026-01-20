@@ -154,7 +154,8 @@
         .social-link .overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.5) 10%, rgba(0,0,0,0.18) 40%, rgba(0,0,0,0) 100%);
+            /* Slightly stronger dark gradient so titles sit on higher contrast */
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 8%, rgba(0,0,0,0.28) 45%, rgba(0,0,0,0) 100%);
             pointer-events: none;
         }
 
@@ -185,6 +186,8 @@
             font-size: 1.02em;
             line-height: 1;
             color: #ffffff;
+            /* improve contrast on busy images */
+            text-shadow: 0 1px 4px rgba(0,0,0,0.6);
             margin-bottom: 4px;
         }
 
@@ -215,7 +218,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(0,0,0,0.05);
+            /* Make the overall card slightly darker when overlay is present */
+            background: rgba(0,0,0,0.12);
             pointer-events: none;
             z-index: 1;
             border-radius: inherit;
