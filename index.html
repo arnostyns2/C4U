@@ -38,6 +38,20 @@
             padding: 0;
         }
 
+        .hero-banner {
+            width: 100%;
+            display: block;
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
         .logo {
             width: 120px;
             height: 120px;
@@ -136,7 +150,7 @@
 
         .social-text {
             position: relative;
-            z-index: 4;
+            z-index: 2;
             padding: 14px 16px;
             width: 100%;
             box-sizing: border-box;
@@ -154,8 +168,6 @@
             height: 20px;
             object-fit: contain;
             display: inline-block;
-            position: relative;
-            z-index: 6;
         }
 
         .social-text .platform {
@@ -187,31 +199,20 @@
             transition: left 0.5s;
         }
 
-        .social-link:hover::before {
-            left: 100%;
-        }
-
-        /* Very subtle vertical gradient overlay behind titles for screenshot cards */
+        /* Very subtle dark overlay (only applied to cards with screenshots)
+           Uses a separate pseudo-element so it sits between background and text */
         .social-link.has-overlay::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.32) 0%, rgba(0,0,0,0.14) 55%, rgba(0,0,0,0) 100%);
+            background: rgba(0,0,0,0.05);
             pointer-events: none;
             z-index: 1;
             border-radius: inherit;
-            transition: background 250ms ease;
         }
 
-        .social-link.has-overlay:hover::after {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.48) 0%, rgba(0,0,0,0.24) 55%, rgba(0,0,0,0) 100%);
-        }
-
-        /* Improve title contrast without changing color/size */
-        .social-link.has-overlay .platform {
-            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-            position: relative;
-            z-index: 2;
+        .social-link:hover::before {
+            left: 100%;
         }
 
         .social-link:hover {
@@ -416,99 +417,7 @@
             margin-top: 10px;
         }
 
-        /* Account Section */
-        .account-section {
-            background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .account-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
-            animation: pulse 8s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        .account-section h2 {
-            position: relative;
-            z-index: 1;
-            font-size: 1.8em;
-            color: #2d3748;
-            margin-bottom: 25px;
-        }
-
-        .account-info {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-
-        .account-link {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 35px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            font-weight: 600;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .account-link::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .account-link:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .account-link:hover {
-            transform: scale(1.08) translateY(-3px);
-            box-shadow: 0 10px 35px rgba(102, 126, 234, 0.5);
-        }
-
-        .account-link:active {
-            transform: scale(1.03) translateY(-1px);
-        }
-
-        .account-link span {
-            position: relative;
-            z-index: 1;
-        }
+        /* Account styles removed (no accounts used in this funnel) */
 
         @media (max-width: 768px) {
             h1 {
@@ -548,15 +457,7 @@
                 font-size: 20px;
             }
 
-            .account-info {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .account-link {
-                width: 100%;
-                justify-content: center;
-            }
+            /* account responsive rules removed */
         }
 
         /* Loading Animation */
@@ -597,19 +498,6 @@
 
         <div class="products-grid" id="productsGrid"></div>
 
-        <div class="account-section">
-            <h2>Mijn Account</h2>
-            <div class="account-info">
-                <a href="#" class="account-link">
-                    <span>👤</span>
-                    <span>Login</span>
-                </a>
-                <a href="#" class="account-link">
-                    <span>🛒</span>
-                    <span>Winkelwagen (0)</span>
-                </a>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -675,9 +563,7 @@
                             </div>
                         `;
 
-                    // Platforms that should get the subtle overlay (even if they don't show a small icon)
-                            const overlayPlatforms = new Set(['MakerWorld','Instagram','Facebook','Pinterest','YouTube','Webshop']);
-                    const overlayClass = overlayPlatforms.has(link.name) ? ' has-overlay' : '';
+                    const overlayClass = iconSrc ? ' has-overlay' : '';
                     return `
                     <a href="${link.url}" 
                        class="social-link fade-in${overlayClass}" 
