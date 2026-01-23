@@ -1,0 +1,21 @@
+C4U.STUDIO – Landingpagina doel
+
+Deze landingpagina is GEEN webshop en GEEN klassieke homepage.
+Dit is een funnel- en dataverzamelpagina.
+
+Doel van de pagina:
+- Verkeer ontvangen vanuit Pinterest, Instagram, Facebook en andere socials
+- Gebruikers bewust maken van C4U Studio (handgemaakt, creatief, slow design)
+- Gebruikers zo snel mogelijk doorsturen naar de webshop of socials
+- Gedrag meten (scroll, clicks, exits) via Google Analytics
+
+Belangrijk:
+- De pagina moet overzichtelijk zijn
+- Call-to-action links zijn belangrijker dan content
+- Inspiratie > details
+- De gebruiker mag voelen dat er "meer" is onderaan, maar niet afgeleid worden
+
+Deze pagina is bedoeld om:
+- Data te verzamelen
+- Te leren wat werkt
+- De funnel te optimaliseren

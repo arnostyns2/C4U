@@ -23,8 +23,9 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: #fbfbfb; /* minimal, calm background */
             min-height: 100vh;
+            color: #222;
         }
 
         .container {
@@ -120,42 +121,65 @@
             100% { transform: rotate(45deg) translateY(0); }
         }
 
-        /* Social Links */
+        /* FORCE equal sizing for all social cards */
         .social-links {
-            /* single-row horizontal layout for compact funnel */
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            gap: 14px;
-            margin-bottom: 18px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
             max-width: 1100px;
-            margin-left: auto;
-            margin-right: auto;
-            overflow-x: auto;
-            padding: 6px 8px;
+            margin: 0 auto 32px;
         }
 
-        /* Full-image social buttons */
+        /* All cards same height */
         .social-link {
             position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: auto;
-            min-width: 160px;
-            min-height: 88px;
-            border-radius: 12px;
-            overflow: hidden;
             text-decoration: none;
             color: #fff;
             box-shadow: 0 6px 22px rgba(17,24,39,0.06);
             transition: transform 220ms ease, box-shadow 220ms ease;
-            background-color: #f6f8fb;
-            background-size: cover;
-            background-position: center;
+            height: 160px;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            overflow: hidden;
+            background-size: cover; /* vullen zonder stretch */
+            background-position: center center;
+            background-repeat: no-repeat;
+            display: block;
         }
 
         .social-link:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(17,24,39,0.12); }
+
+        /* Webshop = same size, but stronger styling */
+        .social-link.primary {
+            height: 160px; /* SAME HEIGHT */
+            aspect-ratio: 16 / 9;
+            border-radius: 16px;
+            background: linear-gradient(90deg,#ffd7e0 0%, #ffeedd 100%);
+            box-shadow: 0 18px 50px rgba(118,75,162,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+        }
+
+        /* Webshop dominance via grid span (set on desktop further below) */
+
+        .social-cta {
+            background: #2d3748;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-weight: 700;
+            margin-left: 14px;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .social-link.primary .platform {
+            color: #2d3748;
+            text-shadow: none;
+        }
 
         .social-link .overlay {
             position: absolute;
@@ -165,12 +189,30 @@
             pointer-events: none;
         }
 
+        /* Prevent text overlay stretching */
         .social-text {
             position: relative;
             z-index: 2;
             padding: 10px 12px;
             width: 100%;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
+        }
+
+        /* Keep link cards minimal: hide long descriptions, show only for primary webshop */
+        .social-desc {
+            display: none;
+        }
+
+        .social-link.primary .social-desc {
+            display: block;
+            color: #2d3748;
+            font-weight: 700;
+            font-size: 0.95em;
+            margin-top: 6px;
         }
 
         /* Title row: small icon inline with title text */
@@ -265,6 +307,55 @@
             margin-bottom: 30px;
         }
 
+        /* Product preview: show part of the products area so user sees there is more */
+        .products-preview {
+            max-width: 1100px;
+            margin: 0 auto 40px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            padding: 10px;
+            background: transparent;
+        }
+
+        .products-preview .products-grid {
+            margin: 0;
+            padding: 10px 6px 60px 6px; /* space at bottom for fade */
+        }
+
+        .preview-fade {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 96px;
+            background: linear-gradient(180deg, rgba(251,251,251,0) 0%, rgba(251,251,251,1) 80%);
+            pointer-events: none;
+            border-radius: 0 0 18px 18px;
+        }
+
+        .preview-hint {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 18px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            color: rgba(45,55,72,0.7);
+            font-size: 0.95em;
+            z-index: 6;
+        }
+
+        .preview-hint .chev {
+            width: 12px;
+            height: 12px;
+            border-bottom: 2px solid rgba(45,55,72,0.6);
+            border-right: 2px solid rgba(45,55,72,0.6);
+            transform: rotate(45deg);
+            animation: bob 1.6s infinite;
+        }
+
         .product-card {
             background: white;
             border-radius: 20px;
@@ -303,10 +394,12 @@
 
         /* Image Gallery */
         .image-gallery {
-            position: relative;
+            aspect-ratio: 4 / 5;
             width: 100%;
-            height: 400px;
+            max-height: 420px;
             overflow: hidden;
+            position: relative;
+            background: #fbfdff;
         }
 
         .gallery-images {
@@ -316,22 +409,12 @@
             align-items: center;
         }
 
-        .image-gallery {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 4 / 5;
-            max-height: 600px;
-            overflow: hidden;
-            background: #fbfdff;
-        }
-
         .gallery-image {
-            min-width: 100%;
+            width: 100%;
             height: 100%;
-            object-fit: contain;
-            padding: 12px;
+            object-fit: contain; /* NO STRETCH */
+            background: #fbfbfb;
             box-sizing: border-box;
-            background: transparent;
         }
 
         .gallery-nav {
@@ -480,6 +563,19 @@
             /* account responsive rules removed */
         }
 
+        @media (min-width: 769px) {
+            .social-links { justify-content: center; max-width: 1100px; }
+            .social-link { width: auto; }
+            /* Webshop spans two columns on desktop to remain visually dominant via width */
+            .social-link.primary { grid-column: span 2; }
+            .products-preview { max-width: 1100px; }
+        }
+
+        /* Mobile: webshop not stretched */
+        @media (max-width: 768px) {
+            .social-link.primary { grid-column: span 1; }
+        }
+
         /* Loading Animation */
         @keyframes fadeIn {
             from {
@@ -516,19 +612,26 @@
 
         <div class="social-links" id="socialLinks"></div>
 
-        <div class="products-grid" id="productsGrid"></div>
+        <div class="products-preview">
+            <div class="products-grid" id="productsGrid"></div>
+            <div class="preview-fade"></div>
+            <div class="preview-hint" aria-hidden="true">
+                <div class="chev"></div>
+                <div>Meer producten</div>
+            </div>
+        </div>
 
     </div>
 
     <script>
-        // Data structuur (full-image buttons)
+        // Data structuur (full-image buttons) - order tuned for funnel (Webshop first)
         const socialLinks = [
-            { name: 'MakerWorld', image: 'images/link_images/makerworld.png', url: 'https://makerworld.com/en/@user_2448622146', desc: 'Download my 3D models – tested & printable' },
-            { name: 'Instagram', image: 'images/link_images/instagram.png', url: 'https://www.instagram.com/c4u.studio/', desc: 'Behind the scenes, finished pieces & inspiration' },
-            { name: 'Pinterest', image: 'images/link_images/pinterest.png', url: 'https://www.pinterest.com/crochets4U/', desc: 'Ideas, collections & design inspiration' },
-            { name: 'YouTube', image: 'images/link_images/youtube.png', url: 'https://youtube.com/@crochets4u', desc: 'Tutorials, tips & maker videos' },
-            { name: 'Webshop', image: 'images/link_images/webshop.png', url: 'https://crochets4u.be', desc: 'Buy finished pieces, patterns & designs' },
-            { name: 'Facebook', image: 'images/link_images/facebook.png', url: 'https://www.facebook.com/search/top?q=c4ustudio', desc: 'Updates, releases & community posts' }
+            { name: 'Webshop', image: 'images/link_images/webshop.png', url: 'https://crochets4u.be', desc: 'Koop hier: handgemaakte juwelen en patronen' },
+            { name: 'Instagram', image: 'images/link_images/instagram.png', url: 'https://www.instagram.com/c4u.studio/', desc: 'Behind the scenes & finished pieces' },
+            { name: 'Pinterest', image: 'images/link_images/pinterest.png', url: 'https://www.pinterest.com/crochets4U/', desc: 'Collecties & inspiratie' },
+            { name: 'MakerWorld', image: 'images/link_images/makerworld.png', url: 'https://makerworld.com/en/@user_2448622146', desc: 'Gratis downloads & maker credibility' },
+            { name: 'YouTube', image: 'images/link_images/youtube.png', url: 'https://youtube.com/@crochets4u', desc: 'Tutorials & maker video' },
+            { name: 'Facebook', image: 'images/link_images/facebook.png', url: 'https://www.facebook.com/search/top?q=c4ustudio', desc: 'Community updates' }
         ];
 
         const products = [
@@ -570,6 +673,7 @@
             };
 
             container.innerHTML = socialLinks.map((link, index) => {
+                    const isPrimary = link.name === 'Webshop';
                     const bg = link.image ? `background-image: url('${link.image}');` : '';
                     const iconSrc = topIcons[link.name] || '';
                     const titleRow = iconSrc ? `
@@ -584,17 +688,22 @@
                         `;
 
                     const overlayClass = iconSrc ? ' has-overlay' : '';
+                    const primaryClass = isPrimary ? ' primary' : '';
+                    const descHtml = isPrimary ? `<div class="social-desc">${link.desc || ''}</div>` : '';
+
                     return `
                     <a href="${link.url}" 
-                       class="social-link fade-in${overlayClass}" 
+                       class="social-link fade-in${overlayClass}${primaryClass}" 
                        aria-label="Open ${link.name} - ${link.desc}"
+                       onclick="trackLinkClick('${link.name}','${link.url}')"
                        target="${isMobile ? '_self' : '_blank'}"
                        style="${bg} animation-delay: ${index * 0.08}s">
                         <div class="overlay"></div>
                         <div class="social-text">
                             ${titleRow}
-                            <div class="social-desc">${link.desc || ''}</div>
+                            ${descHtml}
                         </div>
+                        ${isPrimary ? `<div class="social-cta">Shop nu</div>` : ''}
                     </a>`;
             }).join('');
         }
@@ -719,10 +828,30 @@
 
         // Navigate to product page
         function navigateToProduct(link, isMobile) {
+            // Track product click
+            if (typeof gtag === 'function') {
+                try { gtag('event', 'select_content', { content_type: 'product', item_id: link }); } catch (e) { /* noop */ }
+            }
+
             if (isMobile) {
                 window.location.href = link;
             } else {
                 window.open(link, '_blank');
+            }
+        }
+
+        // Track outbound/social link clicks for GA behavioral analysis
+        function trackLinkClick(name, url) {
+            if (typeof gtag === 'function') {
+                try {
+                    gtag('event', 'select_content', {
+                        event_category: 'funnel_link',
+                        event_label: name,
+                        content_type: 'link',
+                        item_id: name,
+                        destination: url
+                    });
+                } catch (e) { /* noop */ }
             }
         }
 
