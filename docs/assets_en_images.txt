@@ -1,0 +1,19 @@
+C4U.STUDIO – Assets & images
+
+Backdrop images:
+- webshop.png → gebruikt voor Webshop kaart
+- instagram.png
+- pinterest.png
+- makerworld.png
+- youtube.png
+- facebook.png
+
+Regels:
+- Alle images moeten dezelfde verhouding hebben (16:9 aanbevolen)
+- Nooit stretchen
+- Gebruik background-size: cover
+- Centreer altijd het belangrijkste visuele element
+
+Webshop backdrop:
+- Toont sfeer, producten en branding
+- Wordt niet hergebruikt voor andere kaarten

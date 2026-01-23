@@ -163,6 +163,14 @@
             padding: 14px 18px;
         }
 
+        /* Show full webshop backdrop without cropping (prevent over-zoom) */
+        .social-link.primary[style*="webshop.png"] {
+            background-size: contain !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+            background-color: #f6f6f8;
+        }
+
         /* Webshop dominance via grid span (set on desktop further below) */
 
         .social-cta {
