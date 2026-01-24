@@ -1,0 +1,38 @@
+C4U.STUDIO – Funnel & Layout Data (master file)
+
+Pagina type:
+- Funnel landingpage
+- Data & analyse centraal
+- Geen verkoop op de pagina zelf
+
+Funnel volgorde:
+1. Webshop (primair)
+2. Instagram
+3. Pinterest
+4. MakerWorld
+5. YouTube
+6. Facebook
+
+Layout principes:
+- Mobile-first
+- Desktop optimalisatie via media queries
+- Consistente card heights
+- Aspect-ratio altijd gerespecteerd
+
+Afbeeldingen:
+- Inspiratiebeelden → background-size: cover
+- UI / webshop screenshots → background-size: contain (desktop only)
+
+Dominantie:
+- Webshop is dominant door grid-span
+- Niet door hoogte
+- Niet door schreeuwerige kleuren
+
+Waarom dit schaalbaar is:
+- Nieuwe links kunnen makkelijk toegevoegd worden
+- A/B testen mogelijk via volgorde
+- Analytics events zijn consistent
+
+Belangrijk voor toekomst:
+- Nieuwe webshop screenshots altijd testen op desktop
+- Mobile blijft leidend voor eerste indruk

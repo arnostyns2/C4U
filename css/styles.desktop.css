@@ -1,0 +1,23 @@
+/* styles.desktop.css — desktop-only overrides
+   Applied only when screen >= 1024px (linked with media attr)
+   Purpose: make webshop-card dominant via layout, not height; use contain for webshop screenshot
+*/
+/* Desktop: allow webshop to span two columns for visual dominance */
+.social-link.primary{grid-column:span 2;background-size:contain;background-position:center center;background-repeat:no-repeat}
+
+/* Ensure other cards remain cover on desktop (explicit, though base already sets cover)
+   This keeps inspiration images filling their cards.
+*/
+.social-link:not(.primary){background-size:cover;background-position:center center}
+
+/* Slightly increase spacing on larger screens */
+@media (min-width:1024px){
+   /* Desktop grid: 3 columns for balanced layout; webshop spans 2 columns */
+   .social-links{gap:24px;max-width:1200px;grid-template-columns:repeat(3,1fr);grid-auto-rows:160px;grid-auto-flow:dense}
+   .products-preview{max-width:1200px}
+   /* Place Pinterest visually bottom-right: third column, second row */
+   .social-link.pinterest{grid-column:3/4;grid-row:2/3;background-size:contain;background-position:center center;background-repeat:no-repeat}
+}
+
+/* Desktop: keep platform title contrast sensible on primary card */
+.social-link.primary .platform{color:#2d3748}
