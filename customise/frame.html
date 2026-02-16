@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>C4U Studio – Custom Frame</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+  }
+}
+</script>
+
+<style>
+body {
+  margin: 0;
+  background: #f5f5f5;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .wrapper {
+    grid-template-columns: 1.3fr 0.7fr;
+  }
+}
+
+canvas {
+  width: 100%;
+  height: 520px;
+  background: #eee;
+  border-radius: 14px;
+}
+
+.panel {
+  background: #fff;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+label {
+  margin-top: 16px;
+  display: block;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 16px;
+  width: 100%;
+  padding: 14px;
+  background: #000;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+  <canvas id="viewer"></canvas>
+
+  <div class="panel">
+    <h2>Customize your frame</h2>
+
+    <label>Your text</label>
+    <input id="textInput" maxlength="14" value="you and me" />
+
+    <button id="downloadBtn">Download 3D file (test)</button>
+    <button onclick="window.location.href='../etsy.html'">Order via Etsy</button>
+  </div>
+</div>
+
+<script type="module">
+import * as THREE from 'three'
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+import { FontLoader } from 'three/addons/loaders/FontLoader.js'
+import { TextGeometry } from 'three/addons/geometries/TextGeometry.js'
+import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js'
+
+/* BASIC SETUP */
+const canvas = document.getElementById('viewer')
+const scene = new THREE.Scene()
+scene.background = new THREE.Color(0xf0f0f0)
+
+const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 100)
+camera.position.set(0, 0.35, 2.6)
+camera.lookAt(0, 0.25, 0)
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true })
+renderer.setSize(canvas.clientWidth, canvas.clientHeight)
+renderer.setPixelRatio(window.devicePixelRatio)
+
+/* LIGHTS */
+scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 1.2))
+const dir = new THREE.DirectionalLight(0xffffff, 0.8)
+dir.position.set(3, 5, 3)
+scene.add(dir)
+
+/* GROUP */
+const frameGroup = new THREE.Group()
+scene.add(frameGroup)
+
+let frame, font, textMesh, leftBar, rightBar
+
+/* ROTATE */
+let drag = false
+let lastX = 0
+
+canvas.addEventListener('mousedown', e => {
+  drag = true
+  lastX = e.clientX
+})
+window.addEventListener('mouseup', () => drag = false)
+window.addEventListener('mousemove', e => {
+  if (!drag) return
+  frameGroup.rotation.y += (e.clientX - lastX) * 0.005
+  lastX = e.clientX
+})
+
+/* LOAD FRAME */
+new GLTFLoader().load('./models/frame.glb', gltf => {
+  frame = gltf.scene
+  frameGroup.add(frame)
+  rebuildText()
+})
+
+/* LOAD FONT */
+new FontLoader().load('./fonts/Pacifico_Regular.json', f => {
+  font = f
+  rebuildText()
+})
+
+/* INPUT */
+const input = document.getElementById('textInput')
+input.addEventListener('input', rebuildText)
+
+function rebuildText() {
+  if (!font || !frame) return
+
+  if (textMesh) frameGroup.remove(textMesh)
+  if (leftBar) frameGroup.remove(leftBar)
+  if (rightBar) frameGroup.remove(rightBar)
+
+  /* TEXT */
+  const geo = new TextGeometry(input.value, {
+    font,
+    size: 0.22,
+    height: 0.10,      // 🔥 10mm diepte
+    curveSegments: 12
+  })
+  geo.center()
+  geo.computeBoundingBox()
+
+  textMesh = new THREE.Mesh(
+    geo,
+    new THREE.MeshStandardMaterial({ color: 0x000000, roughness: 0.35 })
+  )
+  textMesh.position.set(0, 0.22, 0)
+
+  const width = geo.boundingBox.max.x
+
+  /* SMART CONNECTED LINES */
+  const barThickness = 0.03
+  const barDepth = 0.10
+  const barLength = 0.55
+  const overlap = 0.015   // 🔥 laat lijn in de letter lopen
+
+  const barMat = new THREE.MeshStandardMaterial({ color: 0x000000 })
+
+  leftBar = new THREE.Mesh(
+    new THREE.BoxGeometry(barLength, barThickness, barDepth),
+    barMat
+  )
+  rightBar = new THREE.Mesh(
+    new THREE.BoxGeometry(barLength, barThickness, barDepth),
+    barMat
+  )
+
+  leftBar.position.set(
+    -width - barLength / 2 + overlap,
+    0.22,
+    0
+  )
+
+  rightBar.position.set(
+    width + barLength / 2 - overlap,
+    0.22,
+    0
+  )
+
+  frameGroup.add(textMesh, leftBar, rightBar)
+}
+
+/* DOWNLOAD */
+document.getElementById('downloadBtn').onclick = () => {
+  const exporter = new GLTFExporter()
+  exporter.parse(frameGroup, gltf => {
+    const blob = new Blob([JSON.stringify(gltf)], { type: 'application/octet-stream' })
+    const a = document.createElement('a')
+    a.href = URL.createObjectURL(blob)
+    a.download = 'custom-frame.glb'
+    a.click()
+  })
+}
+
+/* LOOP */
+function animate() {
+  requestAnimationFrame(animate)
+  renderer.render(scene, camera)
+}
+animate()
+</script>
+</body>
+</html>

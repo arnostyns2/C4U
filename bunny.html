@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>3D Printed Easter Bunny 110mm | Modern Easter Decoration | C4U Studio Belgium</title>
+
+<meta name="description" content="Minimalist 3D printed Easter Bunny 110mm with ribbed texture and neon base detail. Available in sand, latte or caramel with neon pink, yellow, orange or green base. Designed and 3D printed in Belgium by C4U Studio. Order on Etsy.">
+<meta name="keywords" content="3D printed Easter bunny, modern Easter decoration, minimalist Easter ornament, neon Easter bunny, PLA Easter decor, Easter bunny Belgium, C4U Studio, 3D printed Easter decor, Easter table decoration">
+<meta name="author" content="C4U Studio">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#f6f4f3">
+
+<!-- Open Graph -->
+<meta property="og:title" content="3D Printed Easter Bunny 110mm – Modern Easter Decor | C4U Studio">
+<meta property="og:description" content="Minimalist ribbed Easter bunny with neon detail. Designed and 3D printed in Belgium by C4U Studio. Available on Etsy.">
+<meta property="og:image" content="https://c4u.studio/images/bunny/horizontal.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://c4u.studio/bunny.html">
+<meta property="og:site_name" content="C4U Studio">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3D Printed Easter Bunny 110mm – C4U Studio Belgium">
+<meta name="twitter:description" content="Minimalist ribbed Easter bunny with neon detail. Designed and 3D printed in Belgium.">
+<meta name="twitter:image" content="https://c4u.studio/images/bunny/horizontal.png">
+
+<link rel="canonical" href="https://c4u.studio/bunny.html">
+<link rel="icon" href="images/icon.png" type="image/png">
+
+<style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pink: #e88aa0;
+  --pink-dark: #d4748c;
+  --bg: #f6f4f3;
+  --white: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #666;
+  --border: #e8e4e0;
+  --shadow-sm: 0 2px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 16px 50px rgba(0,0,0,0.12);
+  --radius-lg: 20px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+.container { max-width: 1150px; margin: 0 auto; padding: 0 24px; }
+
+/* HEADER */
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.logo img { height: 40px; }
+
+nav { display: flex; gap: 28px; font-size: 14px; font-weight: 500; }
+nav a { color: var(--text-muted); transition: color 0.2s; }
+nav a:hover { color: var(--pink); }
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 75vh;
+  min-height: 520px;
+  background: url("images/bunny/horizontal.png") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.50));
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 750px; padding: 20px; }
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.92;
+  margin-bottom: 28px;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-price { font-size: 36px; font-weight: 700; margin-bottom: 28px; }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pink);
+  color: white;
+  padding: 15px 44px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+  box-shadow: 0 8px 25px rgba(232,138,160,0.45);
+}
+
+.btn-primary:hover {
+  background: var(--pink-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(232,138,160,0.55);
+}
+
+/* TRUST BAR */
+.trust-bar {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.trust-item { padding: 8px; }
+.trust-icon { font-size: 22px; margin-bottom: 8px; }
+.trust-label { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+.trust-desc { font-size: 12px; color: var(--text-muted); }
+
+/* PRODUCT SECTION */
+.product-section { padding: 80px 0 90px; }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* CAROUSEL */
+.carousel-wrapper { width: 100%; max-width: 460px; }
+
+.carousel {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-track img {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: var(--radius-lg);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.25s, transform 0.25s;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.dot.active { background: var(--pink); transform: scale(1.3); }
+
+.carousel-controls { margin-top: 10px; display: flex; gap: 10px; }
+
+.carousel-controls button {
+  flex: 1;
+  background: var(--white);
+  color: var(--text);
+  border: 1.5px solid var(--border);
+  padding: 11px 0;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.25s;
+}
+
+.carousel-controls button:hover {
+  background: var(--pink);
+  color: white;
+  border-color: var(--pink);
+}
+
+/* PRODUCT INFO */
+.product-info { padding-top: 4px; }
+
+.product-info h2 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.product-subtitle { font-size: 15px; color: var(--text-muted); margin-bottom: 24px; }
+
+.info-price {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.info-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pink);
+  color: white;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 32px;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+  box-shadow: 0 6px 20px rgba(232,138,160,0.35);
+}
+
+.info-cta:hover {
+  background: var(--pink-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(232,138,160,0.5);
+}
+
+.badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  padding: 7px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.details-list { list-style: none; padding: 0; margin-bottom: 24px; }
+
+.details-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.details-list li:last-child { border-bottom: none; }
+
+.details-list li::before {
+  content: "";
+  width: 6px; height: 6px; min-width: 6px;
+  border-radius: 50%;
+  background: var(--pink);
+  margin-top: 8px;
+}
+
+.product-description { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+/* FOOTER */
+footer {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  padding: 48px 0 36px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand .footer-logo { height: 36px; margin-bottom: 14px; }
+
+.footer-brand p { font-size: 13px; color: var(--text-muted); line-height: 1.7; max-width: 240px; }
+
+.footer-col h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col ul li { margin-bottom: 9px; }
+.footer-col ul li a { font-size: 13px; color: var(--text-muted); transition: color 0.2s; }
+.footer-col ul li a:hover { color: var(--pink); }
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-bottom p { font-size: 12px; color: var(--text-muted); }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links a { font-size: 12px; color: var(--text-muted); transition: color 0.2s; }
+.footer-bottom-links a:hover { color: var(--pink); }
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .hero { height: 65vh; }
+  .hero h1 { font-size: 30px; }
+  .hero p { font-size: 16px; }
+  .hero-price { font-size: 28px; }
+  .product-section { padding: 48px 0 60px; }
+  .product-grid { grid-template-columns: 1fr; gap: 40px; }
+  .carousel-wrapper { max-width: 100%; }
+  .trust-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 24px; }
+  .btn-primary { padding: 13px 32px; font-size: 15px; }
+}
+
+</style>
+
+<!-- STRUCTURED DATA: Product -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "3D Printed Easter Bunny 110mm",
+  "image": [
+    "https://c4u.studio/images/bunny/horizontal.png",
+    "https://c4u.studio/images/real/1.webp",
+    "https://c4u.studio/images/real/2.webp",
+    "https://c4u.studio/images/real/3.webp"
+  ],
+  "description": "Minimalist 3D printed Easter Bunny 110mm with ribbed texture and neon base detail. Available in sand, latte or caramel with neon pink, yellow, orange or green base. Designed and 3D printed in Belgium by C4U Studio.",
+  "sku": "C4U-BUNNY-110",
+  "brand": { "@type": "Brand", "name": "C4U Studio", "url": "https://c4u.studio" },
+  "material": "PLA",
+  "height": { "@type": "QuantitativeValue", "value": "110", "unitCode": "MMT" },
+  "countryOfOrigin": { "@type": "Country", "name": "Belgium" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "price": "12.00",
+    "availability": "https://schema.org/InStock",
+    "url": "https://www.etsy.com/listing/4457561128",
+    "seller": { "@type": "Organization", "name": "C4U Studio" },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingOrigin": { "@type": "DefinedRegion", "addressCountry": "BE" }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 30
+    }
+  }
+}
+</script>
+
+<!-- STRUCTURED DATA: Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://c4u.studio/" },
+    { "@type": "ListItem", "position": 2, "name": "Easter Collection", "item": "https://c4u.studio/easter.html" },
+    { "@type": "ListItem", "position": 3, "name": "Easter Bunny 110mm", "item": "https://c4u.studio/bunny.html" }
+  ]
+}
+</script>
+
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">
+      <a href="/"><img src="images/icon.png" alt="C4U Studio – Modern 3D Printed Decor Belgium"></a>
+    </div>
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/easter.html">Easter Collection</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" aria-label="Easter Bunny product hero">
+  <div class="hero-content">
+    <h1>3D Printed Easter Bunny 110mm</h1>
+    <p>Modern Easter decoration with sculptural ribbed texture and neon base detail. Designed and 3D printed in Belgium.</p>
+    <div class="hero-price">€12.00</div>
+    <a class="btn-primary" href="https://www.etsy.com/listing/4457561128" target="_blank" rel="noopener">Shop on Etsy</a>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-grid">
+
+
+ 
+    </div>
+  </div>
+</div>
+
+<section class="product-section">
+  <div class="container">
+    <div class="product-grid">
+
+      <div class="carousel-wrapper">
+        <div class="carousel" role="region" aria-label="Product image gallery">
+          <div class="carousel-track" id="carouselTrack">
+            <img src="images/real/1.webp" alt="3D printed Easter bunny – available in sand, latte and caramel with neon base">
+            <img src="images/real/2.webp" alt="Size reference – Easter bunny 110mm">
+            <img src="images/real/3.webp" alt="Ribbed texture close-up – 3D printed Easter bunny by C4U Studio">
+            <img src="images/real/4.webp" alt="Side profile – minimalist Easter decor by C4U Studio Belgium">
+            <img src="images/real/5.webp" alt="Color options – sand, latte, caramel with neon pink, yellow, orange and green base">
+          </div>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <div class="carousel-controls">
+          <button onclick="prevSlide()" aria-label="Previous image">← Previous</button>
+          <button onclick="nextSlide()" aria-label="Next image">Next →</button>
+        </div>
+      </div>
+
+      <div class="product-info">
+        <h2>Easter Bunny 110mm</h2>
+        <p class="product-subtitle">Minimalist ribbed design · Neon base accent · Limited Easter edition</p>
+        <div class="info-price">€12.00</div>
+        <a class="info-cta" href="https://www.etsy.com/listing/4457561128" target="_blank" rel="noopener">Buy on Etsy</a>
+
+        <div class="badge-row">
+          <span class="badge">📐 Height: 110mm</span>
+          <span class="badge">🧱 Material: PLA</span>
+          <span class="badge">🇧🇪 Made in Belgium</span>
+        </div>
+
+        <ul class="details-list">
+          <li>Body colors: Sand, Latte or Caramel</li>
+          <li>Base colors: Neon Pink, Neon Yellow, Neon Orange or Neon Green</li>
+          <li>Sculptural ribbed design with light and shadow play</li>
+          <li>Perfect for Easter table decor or modern shelf styling</li>
+          <li>Returns &amp; exchanges accepted within 30 days</li>
+          <li>Dispatched from Belgium</li>
+        </ul>
+
+        <p class="product-description">
+          Designed and 3D printed by C4U Studio in Belgium. This modern Easter bunny creates beautiful light and shadow thanks to its sculptural ribbed structure. The neon base adds a bold contemporary contrast to the warm neutral body tones.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <img src="images/icon.png" alt="C4U Studio" class="footer-logo">
+        <p>Modern 3D printed decorations designed and made in Belgium. Unique pieces for the modern home.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="/easter.html">Easter Collection</a></li>
+          <li><a href="https://www.etsy.com/listing/4457561128" target="_blank" rel="noopener">Easter Bunny 110mm</a></li>
+          <li><a href="https://crochets4u.be" target="_blank" rel="noopener">Full Webshop</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>C4U Studio</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="https://www.instagram.com/c4u.studio/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.pinterest.com/crochets4U/" target="_blank" rel="noopener">Pinterest</a></li>
+          <li><a href="https://www.etsy.com/shop/C4UStudio" target="_blank" rel="noopener">Etsy Shop</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 C4U Studio – Modern 3D Printed Decor · Designed &amp; printed in Belgium</p>
+      <div class="footer-bottom-links">
+        <a href="/about.html">About</a>
+        <a href="https://www.etsy.com/shop/C4UStudio" target="_blank" rel="noopener">Etsy Shop</a>
+        <a href="https://crochets4u.be" target="_blank" rel="noopener">Webshop</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+let currentIndex = 0;
+const track = document.getElementById("carouselTrack");
+const dotsContainer = document.getElementById("carouselDots");
+const slides = track.children;
+const totalSlides = slides.length;
+
+for (let i = 0; i < totalSlides; i++) {
+  const dot = document.createElement("button");
+  dot.className = "dot" + (i === 0 ? " active" : "");
+  dot.setAttribute("aria-label", "Go to image " + (i + 1));
+  dot.addEventListener("click", () => goToSlide(i));
+  dotsContainer.appendChild(dot);
+}
+
+function updateCarousel() {
+  track.style.transform = "translateX(-" + (currentIndex * 100) + "%)";
+  document.querySelectorAll(".dot").forEach((d, i) => d.classList.toggle("active", i === currentIndex));
+}
+
+function goToSlide(index) { currentIndex = index; updateCarousel(); }
+function nextSlide() { currentIndex = (currentIndex + 1) % totalSlides; updateCarousel(); }
+function prevSlide() { currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; updateCarousel(); }
+
+setInterval(nextSlide, 4500);
+
+let touchStartX = 0;
+track.parentElement.addEventListener("touchstart", e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+track.parentElement.addEventListener("touchend", e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 40) diff > 0 ? nextSlide() : prevSlide();
+});
+</script>
+
+</body>
+</html>

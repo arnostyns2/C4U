@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Easter Collection | Modern 3D Printed Easter Decor | C4U Studio Belgium</title>
+
+<meta name="description" content="Discover the C4U Studio Easter Collection – modern 3D printed Easter bunny decorations designed and made in Belgium. Minimalist, sculptural and contemporary Easter decor available on Etsy.">
+
+<meta name="keywords" content="Easter decor Belgium, modern Easter decoration, 3D printed Easter bunny, minimalist Easter decor, Easter collection, C4U Studio Easter, Scandinavian Easter decor">
+
+<meta name="author" content="C4U Studio">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#f6f4f3">
+
+<meta property="og:title" content="Easter Collection – Modern 3D Printed Easter Decor | C4U Studio">
+<meta property="og:description" content="Minimalist sculptural Easter bunny decorations designed and made in Belgium.">
+<meta property="og:image" content="https://c4u.studio/images/easter/deco.webp">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://c4u.studio/easter.html">
+<meta property="og:site_name" content="C4U Studio">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Easter Collection | C4U Studio Belgium">
+<meta name="twitter:description" content="Modern 3D printed Easter bunny decor designed and made in Belgium.">
+<meta name="twitter:image" content="https://c4u.studio/images/easter/deco.webp">
+
+<link rel="canonical" href="https://c4u.studio/easter.html">
+<link rel="icon" href="images/icon.png" type="image/png">
+
+<style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pink:#e88aa0;
+  --pink-dark:#d4748c;
+  --bg:#f6f4f3;
+  --white:#ffffff;
+  --text:#1a1a1a;
+  --text-muted:#666;
+  --border:#e8e4e0;
+  --shadow-sm:0 2px 12px rgba(0,0,0,0.06);
+  --shadow-lg:0 16px 50px rgba(0,0,0,0.12);
+  --radius-lg:20px;
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a{text-decoration:none;color:inherit;}
+img{display:block;max-width:100%;}
+
+.container{max-width:1150px;margin:auto;padding:0 24px;}
+
+/* HEADER (identical) */
+
+header{
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:var(--shadow-sm);
+}
+
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 0;
+}
+
+.logo img{height:40px;}
+
+nav{display:flex;gap:28px;font-size:14px;font-weight:500;}
+nav a{color:var(--text-muted);transition:color .2s;}
+nav a:hover{color:var(--pink);}
+
+/* HERO */
+
+.hero{
+  background:url("images/easter/deco.webp") center/cover no-repeat;
+  height:55vh;
+  min-height:350px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  color:white;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.55));
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:600px;
+  padding:20px;
+}
+
+.hero h1{
+  font-size:40px;
+  margin-bottom:12px;
+  font-weight:700;
+}
+
+.hero p{
+  font-size:16px;
+  opacity:.9;
+}
+
+/* PRODUCT GRID */
+
+.section{
+  padding:80px 0;
+}
+
+.section h2{
+  text-align:center;
+  font-size:28px;
+  margin-bottom:12px;
+}
+
+.section-intro{
+  text-align:center;
+  color:var(--text-muted);
+  margin-bottom:50px;
+  font-size:15px;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+.product-card{
+  background:var(--white);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  box-shadow:var(--shadow-sm);
+  transition:transform .3s, box-shadow .3s;
+  display:flex;
+  flex-direction:column;
+}
+
+.product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+}
+
+.product-image{
+  aspect-ratio:1/1;
+  background-size:cover;
+  background-position:center;
+}
+
+.product-content{
+  padding:24px;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+}
+
+.product-content h3{
+  font-size:18px;
+  margin-bottom:8px;
+  font-weight:600;
+}
+
+.product-content p{
+  font-size:14px;
+  color:var(--text-muted);
+  margin-bottom:18px;
+}
+
+.price{
+  font-weight:700;
+  font-size:18px;
+  margin-bottom:20px;
+}
+
+.btn{
+  margin-top:auto;
+  background:var(--pink);
+  color:white;
+  padding:12px 20px;
+  border-radius:40px;
+  font-weight:600;
+  text-align:center;
+  transition:background .25s;
+}
+
+.btn:hover{background:var(--pink-dark);}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+  .product-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(max-width:600px){
+  .product-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:26px;}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">
+      <a href="/"><img src="images/icon.png" alt="C4U Studio"></a>
+    </div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/easter.html">Easter Collection</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Easter Collection</h1>
+    <p>Modern minimalist 3D printed Easter decor designed and made in Belgium.</p>
+  </div>
+</section>
+
+<section class="section container">
+  <h2>Explore Our Easter Designs</h2>
+  <p class="section-intro">
+    Sculptural ribbed Easter bunny decorations in modern neutral and pastel tones.
+  </p>
+
+  <div class="product-grid">
+
+    <!-- SET OF 3 -->
+    <div class="product-card">
+      <div class="product-image" style="background-image:url('images/easter/il_1588xN.7708893074_9xhv.jpg.webp');"></div>
+      <div class="product-content">
+        <h3>Set of 3 Minimal Bunny Figures</h3>
+        <p>Large (229mm), Medium (172mm) & Small (114mm). Available in 36 colors.</p>
+        <div class="price">€34.95</div>
+        <a class="btn" target="_blank" rel="noopener"
+        href="https://www.etsy.com/listing/4457557813/3d-printed-easter-bunny-with-hidden?ref=shop_home_active_6&sts=1&logging_key=c184f495fafb4e00c74b539a4223a4297ce7eabc%3A4457557813">
+        View on Etsy
+        </a>
+      </div>
+    </div>
+
+    <!-- STORAGE -->
+    <div class="product-card">
+      <div class="product-image" style="background-image:url('images/easter/deco.webp');"></div>
+      <div class="product-content">
+        <h3>Tall Flat eared Bunny – 172mm</h3>
+        <p>Twist-lock base opens to store Easter eggs or small gifts.</p>
+        <div class="price">€19.50</div>
+        <a class="btn" target="_blank" rel="noopener"
+        href="https://www.etsy.com/listing/4455420595/3d-printed-easter-bunny-decor-set-of-3?ref=shop_home_active_15&sts=1&logging_key=c373ddf3c975967112354542c59311baa6bcab29%3A4455420595">
+        View on Etsy
+        </a>
+      </div>
+    </div>
+
+    <!-- 110MM -->
+    <div class="product-card">
+      <div class="product-image" style="background-image:url('images/easter/110mm.png');"></div>
+      <div class="product-content">
+        <h3>Easter Bunny 110mm</h3>
+        <p>Minimalist ribbed bunny with neon base detail in sand, latte or caramel.</p>
+        <div class="price">€12.00</div>
+        <a class="btn" target="_blank" rel="noopener"
+        href="https://www.etsy.com/listing/4457561128/3d-printed-easter-bunny-110-mm-modern">
+        View on Etsy
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

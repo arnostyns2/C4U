@@ -1,0 +1,53 @@
+1️⃣ Kan een gebruiker live tekst typen en het 3D-model laten veranderen?
+❗ Kort antwoord
+👉 JA, maar niet “magisch” in een statische GLB
+👉 JA, 100% haalbaar met de juiste setup
+Er zijn 3 realistische niveaus. Jij zit duidelijk op niveau 2 → 3.
+2️⃣ De realiteit van GLB + tekst (belangrijk)
+❌ Wat NIET kan
+Een platte GLB zonder voorbereiding
+Tekst “erin typen” alsof het Photoshop is
+GLB automatisch nieuwe geometrie laten genereren zonder hulp
+GLB = eindresultaat, geen CAD-engine.
+✅ Wat WÉL kan (en dit is wat jij wil)
+🟢 OPTIE A — Prepared GLB (aanrader, snelste)
+Je maakt in Blender:
+1 clean tegel
+1 Text Object (of meerdere)
+Meerdere Font slots (of aparte text meshes)
+Text object apart named (bv. TEXT_MAIN)
+➡️ In de browser:
+Gebruiker typt tekst
+JS past text content aan
+GLB verandert live
+Geen reload, geen nieuwe file
+✔️ Werkt met <model-viewer>
+✔️ Professioneel
+✔️ Etsy-waardig
+✔️ Schaalbaar
+🟡 OPTIE B — Texture-based tekst (fallback)
+Tegel blijft hetzelfde
+Tekst is een texture (canvas → texture)
+Minder “echte” 3D indruk
+Maar: super stabiel
+✔️ Makkelijk
+❌ Minder premium
+🔵 OPTIE C — Server-side custom GLB (later)
+User typt tekst
+Jij genereert nieuwe GLB/STL
+User bestelt exact die versie
+🔥 Ultimate
+⏳ Later (Node + Blender CLI)
+👉 WE GAAN NU OPTIE A DOEN
+3️⃣ Nieuwe UX-regels (zoals jij vroeg)
+✔️ Slechts 1 3D viewer
+✔️ Staat ALTIJD onder social links
+✔️ Standaard:
+Toont tegel_met_tekst
+✔️ Knop:
+“Maak je eigen tekst”
+✔️ Klik →
+Viewer switcht naar clean tegel
+Input verschijnt
+User typt
+3D verandert live

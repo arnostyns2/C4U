@@ -1,314 +1,537 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SMVQ8W2YFZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-SMVQ8W2YFZ');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C4U.studio - Handgemaakte Juwelen</title>
-    <link rel="icon" href="images/icon.png" type="image/png">
-    <link rel="apple-touch-icon" href="images/icon.png">
-    <meta name="theme-color" content="#ffffff">
-    <!-- Mobile-first base styles (see docs/) -->
-    <link rel="stylesheet" href="css/styles.base.css">
-    <!-- Desktop-only overrides: grid-span webshop, webshop image contain -->
-    <link rel="stylesheet" href="css/styles.desktop.css" media="screen and (min-width:1024px)">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>C4U Studio – Modern 3D Printed Decor & Crochet Patterns | Belgium</title>
+
+<meta name="description" content="C4U Studio – Modern 3D printed home decor and crochet patterns designed and made in Belgium. Shop on Etsy, follow us on Instagram and Pinterest, or visit our webshop.">
+<meta name="keywords" content="C4U Studio, 3D printed decor Belgium, crochet patterns Belgium, modern home decor, Easter decor Belgium, minimalist 3D printed objects, PLA decor, Easter bunny Belgium">
+<meta name="author" content="C4U Studio">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#f6f4f3">
+
+<meta property="og:title" content="C4U Studio – Modern 3D Printed Decor & Crochet Patterns">
+<meta property="og:description" content="Modern 3D printed home decor and crochet patterns designed and made in Belgium.">
+<meta property="og:image" content="https://c4u.studio/images/hero_image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://c4u.studio/">
+<meta property="og:site_name" content="C4U Studio">
+<meta property="og:locale" content="en_GB">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="C4U Studio – Modern 3D Printed Decor Belgium">
+<meta name="twitter:description" content="Modern 3D printed home decor and crochet patterns designed and made in Belgium.">
+<meta name="twitter:image" content="https://c4u.studio/images/hero_image.png">
+
+<link rel="canonical" href="https://c4u.studio/">
+<link rel="icon" href="images/icon.png" type="image/png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "C4U Studio",
+  "url": "https://c4u.studio",
+  "logo": "https://c4u.studio/images/icon.png",
+  "description": "C4U Studio is a Belgium-based design studio creating modern 3D printed home decor and crochet patterns.",
+  "address": { "@type": "PostalAddress", "addressCountry": "BE" },
+  "sameAs": [
+    "https://www.instagram.com/c4u.studio/",
+    "https://www.pinterest.com/crochets4U/",
+    "https://www.facebook.com/search/top?q=c4ustudio",
+    "https://youtube.com/@crochets4u",
+    "https://www.etsy.com/shop/C4UStudio",
+    "https://crochets4u.be"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "C4U Studio",
+  "url": "https://c4u.studio/"
+}
+</script>
+
+<style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pink:       #e88aa0;
+  --pink-dark:  #d4748c;
+  --bg:         #f6f4f3;
+  --white:      #ffffff;
+  --text:       #1a1a1a;
+  --text-muted: #666666;
+  --border:     #e8e4e0;
+  --shadow-sm:  0 2px 12px rgba(0,0,0,0.06);
+  --shadow-md:  0 8px 30px rgba(0,0,0,0.10);
+  --shadow-lg:  0 20px 60px rgba(0,0,0,0.15);
+  --radius-lg:  20px;
+  --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+.container { max-width: 1150px; margin: 0 auto; padding: 0 24px; }
+
+/* HEADER */
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+.logo img { height: 40px; }
+nav { display: flex; gap: 28px; font-size: 14px; font-weight: 500; letter-spacing: 0.01em; }
+nav a { color: var(--text-muted); transition: color 0.2s; }
+nav a:hover { color: var(--pink); }
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 52vh;
+  min-height: 320px;
+  max-height: 500px;
+  background: url("images/hero_image.png") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  overflow: hidden;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.55) 100%);
+}
+.hero-content { position: relative; z-index: 2; max-width: 620px; padding: 24px; }
+.hero-content h1 { font-size: 38px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 12px; }
+.hero-content p { font-size: 16px; opacity: 0.88; margin-bottom: 24px; }
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255,255,255,0.4);
+  color: white;
+  padding: 10px 28px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.25s, border-color 0.25s;
+  letter-spacing: 0.02em;
+}
+.hero-btn:hover { background: rgba(255,255,255,0.26); border-color: rgba(255,255,255,0.65); }
+
+/* SECTION INTRO */
+.section-intro { text-align: center; padding: 52px 24px 38px; }
+.section-intro h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+.section-intro p { font-size: 15px; color: var(--text-muted); max-width: 400px; margin: 0 auto; }
+
+/* LINK GRID */
+.links-section { padding: 0 0 80px; }
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.link-card {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform 0.28s var(--ease), box-shadow 0.28s var(--ease);
+  will-change: transform;
+}
+.link-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.38s var(--ease);
+}
+.link-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.54) 0%, rgba(0,0,0,0.20) 55%, rgba(0,0,0,0.10) 100%);
+  transition: background 0.28s var(--ease);
+}
+.link-card:hover { transform: translateY(-5px) scale(1.016); box-shadow: var(--shadow-lg); }
+.link-card:hover .link-card-bg { transform: scale(1.05); }
+.link-card:hover .link-card-overlay { background: linear-gradient(135deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.30) 55%, rgba(0,0,0,0.16) 100%); }
+.link-card-content { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; justify-content: flex-start; padding: 20px 22px; z-index: 2; }
+.link-card-title { font-size: 21px; font-weight: 700; color: white; letter-spacing: -0.01em; text-shadow: 0 1px 10px rgba(0,0,0,0.40); }
+.link-card-sub { font-size: 11px; color: rgba(255,255,255,0.75); font-weight: 500; margin-top: 4px; letter-spacing: 0.06em; text-transform: uppercase; text-shadow: 0 1px 6px rgba(0,0,0,0.3); }
+.link-card-arrow {
+  position: absolute;
+  bottom: 16px; right: 18px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 13px;
+  transition: background 0.25s, transform 0.25s;
+  z-index: 2;
+}
+.link-card:hover .link-card-arrow { background: rgba(255,255,255,0.30); transform: translate(2px, -2px); }
+.link-card--featured { grid-column: span 2; aspect-ratio: 16 / 7; }
+
+/* PRODUCT SPOTLIGHT */
+.product-spotlight { padding: 0 0 90px; }
+.spotlight-inner { max-width: 1150px; margin: 0 auto; padding: 0 24px; }
+.spotlight-label { text-align: center; margin-bottom: 28px; }
+.spotlight-label h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+.spotlight-label p { font-size: 14px; color: var(--text-muted); }
+
+.spotlight-card {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  transition: transform 0.32s var(--ease), box-shadow 0.32s var(--ease);
+  will-change: transform;
+  height: 560px;
+  background: #f0ebe6;
+}
+.spotlight-card:hover { transform: translateY(-6px) scale(1.008); box-shadow: 0 28px 70px rgba(0,0,0,0.18); }
+
+.spotlight-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.40s var(--ease);
+}
+.spotlight-card:hover .spotlight-img { transform: scale(1.04); }
+
+.spotlight-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.28) 38%, rgba(0,0,0,0.00) 65%);
+}
+
+.spotlight-text {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 36px 40px;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.spotlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--pink);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+.spotlight-title { font-size: 30px; font-weight: 700; color: white; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 6px; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+.spotlight-desc { font-size: 14px; color: rgba(255,255,255,0.80); line-height: 1.5; max-width: 460px; text-shadow: 0 1px 6px rgba(0,0,0,0.3); }
+
+.spotlight-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  color: var(--text);
+  padding: 13px 28px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+.spotlight-card:hover .spotlight-cta { background: var(--pink); color: white; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,138,160,0.50); }
+
+/* FOOTER */
+footer { background: var(--white); border-top: 1px solid var(--border); padding: 48px 0 36px; }
+.footer-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-brand .footer-logo { height: 36px; margin-bottom: 14px; }
+.footer-brand p { font-size: 13px; color: var(--text-muted); line-height: 1.7; max-width: 240px; }
+.footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 14px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 9px; }
+.footer-col ul li a { font-size: 13px; color: var(--text-muted); transition: color 0.2s; }
+.footer-col ul li a:hover { color: var(--pink); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bottom p { font-size: 12px; color: var(--text-muted); }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links a { font-size: 12px; color: var(--text-muted); transition: color 0.2s; }
+.footer-bottom-links a:hover { color: var(--pink); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-content h1 { font-size: 28px; }
+  .link-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .link-card--featured { grid-column: span 2; aspect-ratio: 16 / 8; }
+  .spotlight-card { height: 480px; }
+  .spotlight-title { font-size: 24px; }
+  .spotlight-text { padding: 28px 28px; flex-direction: column; align-items: flex-start; gap: 16px; }
+  .spotlight-cta { align-self: flex-start; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 580px) {
+  .hero { height: 46vh; min-height: 260px; }
+  .hero-content h1 { font-size: 22px; }
+  .hero-content p { font-size: 14px; }
+  .section-intro { padding: 36px 20px 24px; }
+  .section-intro h2 { font-size: 20px; }
+  .link-grid { grid-template-columns: 1fr; gap: 12px; padding: 0 16px; }
+  .link-card { aspect-ratio: 16 / 9; }
+  .link-card--featured { grid-column: span 1; aspect-ratio: 16 / 9; }
+  .link-card-title { font-size: 18px; }
+  .links-section { padding: 0 0 52px; }
+  .spotlight-card { height: 400px; }
+  .spotlight-title { font-size: 20px; }
+  .spotlight-desc { display: none; }
+  .spotlight-text { padding: 22px; }
+  .spotlight-badge { font-size: 10px; }
+  .product-spotlight { padding: 0 0 60px; }
+  .spotlight-inner { padding: 0 16px; }
+}
+
+</style>
 </head>
 <body>
-    <div class="container">
-        <header class="hero">
-            <div class="hero-banner">
-                <img src="images/backdrop_and_logo_banner.png" alt="C4U studio banner">
-            </div>
-            <div class="scroll-hint" aria-hidden="true">
-                <div class="chev"></div>
-            </div>
-        </header>
 
-        <div class="social-links" id="socialLinks"></div>
+<!-- HEADER -->
+<header>
+  <div class="container header-inner">
+    <div class="logo">
+      <a href="/"><img src="images/icon.png" alt="C4U Studio – Modern 3D Printed Decor Belgium"></a>
+    </div>
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/easter.html">Easter Collection</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
 
-        <div class="products-preview">
-            <div class="products-grid" id="productsGrid"></div>
-            <div class="preview-fade"></div>
-            <div class="preview-hint" aria-hidden="true">
-                <div class="chev"></div>
-                <div>Meer producten</div>
-            </div>
-        </div>
+<!-- HERO -->
+<section class="hero" aria-label="C4U Studio – Modern 3D Printed Decor Belgium">
+  <div class="hero-content">
+    <h1>Modern 3D Printed Design<br>Made in Belgium</h1>
+    <p>Unique decorative objects &amp; crochet patterns — designed and crafted in Belgium.</p>
+    <a href="#links" class="hero-btn">Explore ↓</a>
+  </div>
+</section>
 
+<!-- INTRO -->
+<div class="section-intro">
+  <h2>Find us everywhere</h2>
+  <p>Shop, follow along or get inspired — choose your platform below.</p>
+</div>
+
+<!-- LINK GRID -->
+<section class="links-section" id="links" aria-label="C4U Studio platforms and channels">
+  <div class="link-grid">
+
+    <a class="link-card link-card--featured" href="https://crochets4u.be" target="_blank" rel="noopener" aria-label="Visit the C4U Studio Webshop">
+      <div class="link-card-bg" style="background-image: url('images/link_images/webshop.png');"></div>
+      <div class="link-card-overlay"></div>
+      <div class="link-card-content">
+        <span class="link-card-title">Webshop</span>
+        <span class="link-card-sub">Shop now</span>
+      </div>
+      <span class="link-card-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <a class="link-card" href="https://www.instagram.com/c4u.studio/" target="_blank" rel="noopener" aria-label="Follow C4U Studio on Instagram">
+      <div class="link-card-bg" style="background-image: url('images/link_images/instagram.png');"></div>
+      <div class="link-card-overlay"></div>
+      <div class="link-card-content">
+        <span class="link-card-title">Instagram</span>
+        <span class="link-card-sub">Follow us</span>
+      </div>
+      <span class="link-card-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <a class="link-card" href="https://www.pinterest.com/crochets4U/" target="_blank" rel="noopener" aria-label="Follow C4U Studio on Pinterest">
+      <div class="link-card-bg" style="background-image: url('images/link_images/pinterest.png');"></div>
+      <div class="link-card-overlay"></div>
+      <div class="link-card-content">
+        <span class="link-card-title">Pinterest</span>
+        <span class="link-card-sub">Get inspired</span>
+      </div>
+      <span class="link-card-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <a class="link-card" href="https://www.etsy.com/shop/C4UStudio" target="_blank" rel="noopener" aria-label="Shop C4U Studio on Etsy">
+      <div class="link-card-bg" style="background-image: url('images/link_images/etsy.png');"></div>
+      <div class="link-card-overlay"></div>
+      <div class="link-card-content">
+        <span class="link-card-title">Etsy</span>
+        <span class="link-card-sub">Shop now</span>
+      </div>
+      <span class="link-card-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <a class="link-card" href="https://youtube.com/@crochets4u" target="_blank" rel="noopener" aria-label="Watch C4U Studio on YouTube">
+      <div class="link-card-bg" style="background-image: url('images/link_images/youtube.png');"></div>
+      <div class="link-card-overlay"></div>
+      <div class="link-card-content">
+        <span class="link-card-title">YouTube</span>
+        <span class="link-card-sub">Watch us</span>
+      </div>
+      <span class="link-card-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <a class="link-card" href="https://www.facebook.com/search/top?q=c4ustudio" target="_blank" rel="noopener" aria-label="Follow C4U Studio on Facebook">
+      <div class="link-card-bg" style="background-image: url('images/link_images/facebook.png');"></div>
+      <div class="link-card-overlay"></div>
+      <div class="link-card-content">
+        <span class="link-card-title">Facebook</span>
+        <span class="link-card-sub">Join us</span>
+      </div>
+      <span class="link-card-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <a class="link-card" href="https://makerworld.com" target="_blank" rel="noopener" aria-label="Find C4U Studio on MakerWorld">
+      <div class="link-card-bg" style="background-image: url('images/link_images/makerworld.png');"></div>
+      <div class="link-card-overlay"></div>
+      <div class="link-card-content">
+        <span class="link-card-title">MakerWorld</span>
+        <span class="link-card-sub">Download files</span>
+      </div>
+      <span class="link-card-arrow" aria-hidden="true">→</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- PRODUCT SPOTLIGHT -->
+<section class="product-spotlight" aria-label="Featured product – Easter Bunny 110mm">
+  <div class="spotlight-inner">
+
+    <div class="spotlight-label">
+      <h2>Featured Product</h2>
+      <p>Discover our latest design — click to explore all details.</p>
     </div>
 
-    <script>
-        // Data structuur (full-image buttons) - order tuned for funnel (Webshop first)
-        const socialLinks = [
-            { name: 'Webshop', image: 'images/link_images/webshop.png', url: 'https://crochets4u.be', desc: 'Koop hier: zelfgemaakt 3D ornaments, juwelen, patronen, etc.' },
-            { name: 'Instagram', image: 'images/link_images/instagram.png', url: 'https://www.instagram.com/c4u.studio/', desc: 'Behind the scenes & finished pieces' },
-            { name: 'Pinterest', image: 'images/link_images/pinterest.png', url: 'https://www.pinterest.com/crochets4U/', desc: 'Collecties & inspiratie' },
-            { name: 'Facebook', image: 'images/link_images/facebook.png', url: 'https://www.facebook.com/search/top?q=c4ustudio', desc: 'Community updates' },
-            { name: 'YouTube', image: 'images/link_images/youtube.png', url: 'https://youtube.com/@crochets4u', desc: 'Tutorials & maker video' }
-        ];
+    <a class="spotlight-card" href="/bunny.html" aria-label="View the Easter Bunny 110mm – click to see all details">
 
-        const products = [
-            {
-                id: 1,
-                name: 'Leaf Earrings – Nature Inspired Jewelry',
-                description: 'Elegant leaf shape inspired by nature',
-                price: 'FREE DOWNLOAD',
-                link: 'https://makerworld.com/en/models/2082822-leaf-earrings-nature-inspired-jewelry#profileId-2250876',
-                images: [
-                    'images/earring_leaf/productimagemodelleaf.png',
-                    'images/earring_leaf/leaf_ring.webp'
-                ]
-            },
-            {
-                id: 2,
-                name: 'Geometric Heart Earrings',
-                description: 'Modern geometric heart design',
-                price: 'FREE DOWNLOAD',
-                link: 'https://makerworld.com/en/models/2090918-geometric-heart-earrings#profileId-2260232',
-                images: [
-                    'images/earring_heart/productimagemodelheart.png',
-                    'images/earring_heart/heart_ring.webp'
-                ]
-            }
-        ];
+      <img
+        class="spotlight-img"
+        src="images/vertical.png"
+        alt="3D Printed Easter Bunny 110mm – sand body with neon pink base, designed and 3D printed in Belgium by C4U Studio"
+        loading="lazy"
+      >
 
-        // Render social links (add small top icon for supported platforms)
-        function renderSocialLinks() {
-            const container = document.getElementById('socialLinks');
-            const isMobile = window.innerWidth <= 768;
+      <div class="spotlight-gradient"></div>
 
-            // map platform names to small icon files in images/icons/
-            const topIcons = {
-                'Instagram': 'images/icons/instagram.png',
-                'Facebook': 'images/icons/facebook.png',
-                'Pinterest': 'images/icons/pinterest.png',
-                'YouTube': 'images/icons/youtube.png'
-            };
+      <div class="spotlight-text">
+        <div class="spotlight-text-left">
+          <div class="spotlight-badge">✦ New</div>
+          <div class="spotlight-title">Easter Bunny 110mm</div>
+          <div class="spotlight-desc">Minimalist ribbed design with neon base accent. Available in Sand, Latte or Caramel — 3D printed in Belgium. From €12.00</div>
+        </div>
+        <span class="spotlight-cta" aria-hidden="true">View product →</span>
+      </div>
 
-            container.innerHTML = socialLinks.map((link, index) => {
-                    const isPrimary = link.name === 'Webshop';
-                    const bg = link.image ? `background-image: url('${link.image}');` : '';
-                    const iconSrc = topIcons[link.name] || '';
-                    const titleRow = iconSrc ? `
-                            <div class="social-title-row">
-                                <img src="${iconSrc}" alt="${link.name} icon" class="social-title-icon">
-                                <div class="platform">${link.name}</div>
-                            </div>
-                        ` : `
-                            <div class="social-title-row">
-                                <div class="platform">${link.name}</div>
-                            </div>
-                        `;
+    </a>
 
-                    const overlayClass = iconSrc ? ' has-overlay' : '';
-                    const primaryClass = isPrimary ? ' primary' : '';
-                    const descHtml = isPrimary ? `<div class="social-desc">${link.desc || ''}</div>` : '';
+  </div>
+</section>
 
-                    return `
-                    <a href="${link.url}" 
-                       class="social-link fade-in${overlayClass}${primaryClass}" 
-                       aria-label="Open ${link.name} - ${link.desc}"
-                       onclick="trackLinkClick('${link.name}','${link.url}')"
-                       target="${isMobile ? '_self' : '_blank'}"
-                       style="${bg} animation-delay: ${index * 0.08}s">
-                        <div class="overlay"></div>
-                        <div class="social-text">
-                            ${titleRow}
-                            ${descHtml}
-                        </div>
-                        ${isPrimary ? `<div class="social-cta">Shop nu</div>` : ''}
-                    </a>`;
-            }).join('');
-        }
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="images/icon.png" alt="C4U Studio" class="footer-logo">
+        <p>Modern 3D printed decorations and crochet patterns designed and made in Belgium.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="https://crochets4u.be" target="_blank" rel="noopener">Webshop</a></li>
+          <li><a href="https://www.etsy.com/shop/C4UStudio" target="_blank" rel="noopener">Etsy Shop</a></li>
+          <li><a href="/easter.html">Easter Collection</a></li>
+          <li><a href="/bunny.html">Easter Bunny 110mm</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/c4u.studio/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.pinterest.com/crochets4U/" target="_blank" rel="noopener">Pinterest</a></li>
+          <li><a href="https://youtube.com/@crochets4u" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 C4U Studio – Modern 3D Printed Decor · Designed &amp; printed in Belgium</p>
+      <div class="footer-bottom-links">
+        <a href="/about.html">About</a>
+        <a href="https://www.etsy.com/shop/C4UStudio" target="_blank" rel="noopener">Etsy</a>
+        <a href="https://crochets4u.be" target="_blank" rel="noopener">Webshop</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-        // Image gallery class
-        class ImageGallery {
-            constructor(productId, images) {
-                this.productId = productId;
-                this.images = images;
-                this.currentIndex = 0;
-            }
-
-            render() {
-                return `
-                    <div class="image-gallery" id="gallery-${this.productId}">
-                        <div class="gallery-images" id="images-${this.productId}">
-                            ${this.images.map(img => `
-                                <img src="${img}" alt="Product" class="gallery-image">
-                            `).join('')}
-                        </div>
-                        ${this.images.length > 1 ? `
-                            <button class="gallery-nav prev" onclick="event.stopPropagation(); galleries[${this.productId}].prev()">‹</button>
-                            <button class="gallery-nav next" onclick="event.stopPropagation(); galleries[${this.productId}].next()">›</button>
-                            <div class="gallery-dots">
-                                ${this.images.map((_, i) => `
-                                    <div class="dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation(); galleries[${this.productId}].goTo(${i})"></div>
-                                `).join('')}
-                            </div>
-                        ` : ''}
-                    </div>
-                `;
-            }
-
-            updateGallery() {
-                const container = document.getElementById(`images-${this.productId}`);
-                container.style.transform = `translateX(-${this.currentIndex * 100}%)`;
-                
-                const dots = document.querySelectorAll(`#gallery-${this.productId} .dot`);
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === this.currentIndex);
-                });
-            }
-
-            next() {
-                this.currentIndex = (this.currentIndex + 1) % this.images.length;
-                this.updateGallery();
-            }
-
-            prev() {
-                this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-                this.updateGallery();
-            }
-
-            goTo(index) {
-                this.currentIndex = index;
-                this.updateGallery();
-            }
-
-            // Touch swipe support
-            setupTouchSwipe() {
-                const gallery = document.getElementById(`gallery-${this.productId}`);
-                let touchStartX = 0;
-                let touchEndX = 0;
-
-                gallery.addEventListener('touchstart', (e) => {
-                    touchStartX = e.changedTouches[0].screenX;
-                }, { passive: true });
-
-                gallery.addEventListener('touchend', (e) => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    this.handleSwipe(touchStartX, touchEndX);
-                }, { passive: true });
-            }
-
-            handleSwipe(startX, endX) {
-                const swipeThreshold = 50;
-                const diff = startX - endX;
-
-                if (Math.abs(diff) > swipeThreshold) {
-                    if (diff > 0) {
-                        this.next();
-                    } else {
-                        this.prev();
-                    }
-                }
-            }
-        }
-
-        // Store galleries globally
-        const galleries = {};
-
-        // Render products
-        function renderProducts() {
-            const container = document.getElementById('productsGrid');
-            const isMobile = window.innerWidth <= 768;
-            
-            products.forEach(product => {
-                galleries[product.id] = new ImageGallery(product.id, product.images);
-            });
-
-            container.innerHTML = products.map((product, index) => `
-                <div class="product-card fade-in" 
-                     onclick="navigateToProduct('${product.link}', ${isMobile})"
-                     style="animation-delay: ${(index + 6) * 0.1}s">
-                    ${galleries[product.id].render()}
-                    <div class="product-info">
-                        <h3 class="product-name">${product.name}</h3>
-                        <p class="product-description">${product.description}</p>
-                        ${product.price === 'FREE DOWNLOAD' ?
-                            `<div class="product-price free">${product.price}</div>` :
-                            `<div class="product-price">${product.price} per set</div>`
-                        }
-                    </div>
-                </div>
-            `).join('');
-
-            // Setup touch swipe for each gallery
-            products.forEach(product => {
-                galleries[product.id].setupTouchSwipe();
-            });
-        }
-
-        // Navigate to product page
-        function navigateToProduct(link, isMobile) {
-            // Track product click
-            if (typeof gtag === 'function') {
-                try { gtag('event', 'select_content', { content_type: 'product', item_id: link }); } catch (e) { /* noop */ }
-            }
-
-            if (isMobile) {
-                window.location.href = link;
-            } else {
-                window.open(link, '_blank');
-            }
-        }
-
-        // Track outbound/social link clicks for GA behavioral analysis
-        function trackLinkClick(name, url) {
-            if (typeof gtag === 'function') {
-                try {
-                    gtag('event', 'select_content', {
-                        event_category: 'funnel_link',
-                        event_label: name,
-                        content_type: 'link',
-                        item_id: name,
-                        destination: url
-                    });
-                } catch (e) { /* noop */ }
-            }
-        }
-
-        // Initialize
-        renderSocialLinks();
-        renderProducts();
-
-        // Re-render on resize for responsive target behavior
-        window.addEventListener('resize', () => {
-            renderSocialLinks();
-            renderProducts();
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                Object.values(galleries).forEach(g => g.prev());
-            } else if (e.key === 'ArrowRight') {
-                Object.values(galleries).forEach(g => g.next());
-            }
-        });
-
-        // Auto-play galleries (optional)
-        let autoPlayInterval;
-        function startAutoPlay() {
-            autoPlayInterval = setInterval(() => {
-                Object.values(galleries).forEach(g => g.next());
-            }, 5000);
-        }
-
-        // Pause on hover
-        document.querySelectorAll('.image-gallery').forEach(gallery => {
-            gallery.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-            gallery.addEventListener('mouseleave', startAutoPlay);
-        });
-
-        startAutoPlay();
-    </script>
 </body>
-    <link rel="stylesheet" href="css/styles.base.css">
-    <link rel="stylesheet" href="css/styles.desktop.css" media="screen and (min-width:1024px)">
+</html>

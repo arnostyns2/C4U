@@ -1,0 +1,41 @@
+C4U.studio – Landing Page Plan
+
+DOEL
+- Professionele landing
+- Etsy als primary verkoopkanaal
+- 3D-ervaring als onderscheidende factor
+
+STRUCTUUR
+1. Hero + branding
+2. Etsy boost (worldwide shipping)
+3. Featured 3D product (clean tile – future custom)
+4. Featured Etsy product (home is where mom is)
+5. Social links
+
+STRATEGIE
+- Elke maand:
+  - 1 nieuw Etsy product pushen
+  - 1 nieuw (customizable) 3D model
+- GLB files beheren in /models
+- Customisatie details:
+  - De site gebruikt één `<model-viewer>` element (`#mainViewer`).
+  - Default model is de tekst-variant (bijv. `models/tegel_homeiswheremomis.glb`).
+  - De "Create your own text" knop laadt `models/tegel_clean.glb` (clean tile) en toont een tekstveld + fontkeuze.
+  - De script zoekt in de GLB-scene naar een mesh genaamd `TEXT_MAIN` en tekent tekst op een canvas dat als texture wordt toegepast op die mesh (live updates tijdens typen).
+
+Hoe nieuwe GLB's toevoegen
+1. Plaats `.glb` in `/models`.
+2. Voor dynamische tekst: voeg een mesh met exact de naam `TEXT_MAIN` toe en maak het materiaal geschikt voor een texture map.
+3. Test lokaal met de viewer en controleer de naam van de node in een GLTF viewer (zoals https://gltf-viewer.donmccurdy.com/).
+
+Maandelijkse product-rotatie (workflow)
+1. Designer maakt of exporteert GLB-bestanden (clean + prefilled text variant).
+2. Plaats ze in `/models` en voeg teaser-afbeeldingen in `images/`.
+3. Update `index.html` default `src` als je wilt dat een model automatisch wordt getoond.
+4. Publiceer nieuwe Etsy-listing en update social cards en plan.txt met de marketingtekst en links.
+
+FOCUS
+- Minimalistisch
+- Rustig
+- Vertrouwen
+- Conversie
